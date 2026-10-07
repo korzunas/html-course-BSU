@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>Спасаем страницу от красного цвета</title>
+
+  <!-- ===== ЗАЩИТА (только CSS) ===== -->
+   <style>
+    html { -webkit-text-fill-color: black !important; }
+    #wrap { color: black; }
+  </style>
+
+</head>
+<body>
+
+  <div id="wrap">
+    <h1>Заголовок страницы</h1>
+    <p>Обычный абзац. Он должен остаться чёрным.</p>
+    <p><a href="#">Ссылка</a> и <b>жирный текст</b> тоже.</p>
+  </div>
+
+  <!-- ===== АТАКА (имитация «нехорошего человека») ===== -->
+  <body style="color:red !important">
+    setTimeout(() => {
+      document.body.setAttribute('style', 'color:red !important');
+    }, 5000);
+  </script>
+
+</body>
+</html>
